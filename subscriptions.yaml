@@ -1,0 +1,12 @@
+---
+- name: Get Azure subscription information
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: List all Azure subscriptions
+      azure_rm_subscription_info:
+      register: output
+
+    - name: Display all Azure subscriptions
+      debug:
+        var: output.subscriptions
